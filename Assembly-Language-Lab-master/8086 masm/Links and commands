@@ -1,0 +1,15 @@
+Important Problems and codes:  http://www.dailyfreecode.com/Tutorial/Easy-Assembly_Language-49.aspx
+
+configuring masm: https://www.youtube.com/watch?v=W72oRn1-zKc
+
+
+Command to compile and run:
+masm sam.asm
+link sam.obj
+sam
+
+
+for creating file:
+mount c: /home/musfiq/Downloads/Softwares/MASM/
+c:
+copy con sam.asm

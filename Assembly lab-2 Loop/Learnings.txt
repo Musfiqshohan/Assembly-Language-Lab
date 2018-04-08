@@ -1,0 +1,21 @@
+1. handle characters with 1 byte that is al or bl not rax or rbx
+
+2. make upper case: or case insensitive:
+	mov dl, 'a'		;if lower case then make it upper
+	cmp al, dl
+	jge up1
+	
+	cmp bl,dl
+	jge up2
+	
+	up1:
+	sub al,20h
+	jmp Compare
+	
+	
+	up2:
+	sub bl,20h
+
+
+3. I can use:
+ there's some extra general purpose registers r8 through r15

@@ -1,0 +1,118 @@
+.MODEL SMALL
+.STACK 100H
+
+.data
+	str db 100 dup('$')
+
+.CODE
+   MAIN PROC
+    
+    
+      	mov ax,@data
+	mov ds,ax
+	
+	mov si,offset str
+	mov cx,0
+	
+L1:
+
+	mov ah,1
+	int 21h
+	cmp al,13
+	je DO
+
+	mov [si],al
+	inc cx
+	inc si
+	
+	jmp L1
+
+
+DO:	mov si,offset str
+L2:
+	mov al,[si]
+	mov bl,'a'
+	cmp al,bl
+	jge up
+	add al,20H
+	jmp next
+	up:sub al,20H
+	
+	next:
+	
+	mov [si],al
+	inc si
+
+	Loop L2
+
+mov dx,offset str
+mov ah,9
+int 21h
+
+     MOV AH, 4CH                  ; return control to DOS
+     INT 21H
+
+   MAIN ENDP
+ END MAIN.MODEL SMALL
+.STACK 100H
+
+.data
+	str db 100 dup('$')
+	prompt db "Enter your string ->$"
+
+.CODE
+   MAIN PROC
+    
+    
+      	mov ax,@data
+	mov ds,ax
+	
+	LEA si,prompt	
+	mov dx,si
+	mov ah,09h
+	int 21h
+
+
+	mov si,offset str
+	mov cx,0
+	
+L1:
+
+	mov ah,1
+	int 21h
+	cmp al,13
+	je DO
+
+	mov [si],al
+	inc cx
+	inc si
+	
+	jmp L1
+
+
+DO:	mov si,offset str
+L2:
+	mov al,[si]
+	mov bl,'a'
+	cmp al,bl
+	jge up
+	add al,20H
+	jmp next
+	up:sub al,20H
+	
+	next:
+	
+	mov [si],al
+	inc si
+
+	Loop L2
+
+mov dx,offset str
+mov ah,9
+int 21h
+
+     MOV AH, 4CH                  ; return control to DOS
+     INT 21H
+
+   MAIN ENDP
+ END MAIN
