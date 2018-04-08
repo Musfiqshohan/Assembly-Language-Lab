@@ -1,0 +1,11 @@
+we push rbp cz we dont want to use the previous stack. we push the prev rbp. then do our task and then pop
+again.
+
+call label similar to jump label  but it can return ip is pushed into stack
+
+
+L1: push rbp
+	push r10
+	push r12
+	pop rbp
+	ret
