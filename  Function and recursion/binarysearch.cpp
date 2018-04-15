@@ -10,9 +10,9 @@ int f(int low, int high, int x)
     if(ara[mid]==x)
         return mid;
 
-    if(ara[mid]>x<)
+    if(ara[mid]>x)
         return f(low,mid-1,x);
-    if(x>ara[mid])
+    if(ara[mid]<x)
         return f(mid+1,high,x);
 }
 
