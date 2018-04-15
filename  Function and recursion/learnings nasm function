@@ -9,3 +9,9 @@ L1: push rbp
 	push r12
 	pop rbp
 	ret
+
+
+1. leave ret= we pop every thing before last rbp 
+2. we have to return from every possible case
+3. [ara+ r11*8] = ara[r11]
+4. 
